@@ -22,7 +22,9 @@ The challenge dataset is categorized into three groups: strong labeled data, wea
 Same with the challenge baseline (DCASE2020).
 
 Step 1. download the dataase
+
 Step 2. modify data path in "config.py"
+
 Step 3. run "main_CRST_model.py"
 
 # Description for different way to train CRNN network
@@ -37,9 +39,13 @@ In version 2 ("main_CRST_model_v2.py"), frame-shifting is applied for data pertu
 
 # Reference
 [1] A. Tarvainen and H. Valpola, “Mean teachers are better role models: Weight-averaged consistency targets improve semi-supervised deep learning results,” in Advances in Neural Information Processing Systems, vol. 2017-Decem, no. Nips, 2017, pp. 1196–1205.
+
 [2] N. Turpault and R. Serizel, “Training Sound Event Detection On A Heterogeneous Dataset,” in DCASE workshop, 2020.
+
 [3] V. Verma, A. Lamb, J. Kannala, Y. Bengio, and D. Lopez-Paz, “Interpolation Consistency Training for Semi-supervised Learning,” in Proceedings of the Twenty-Eighth International Joint Conference on Artificial Intelligence, vol. 2019-Augus. California: International Joint Conferences on Artificial Intelligence Organization, 8 2019, pp. 3635–3641.
+
 [4] S. Park, A. Bellur, D. K. Han, and M. Elhilali, “Self-training for Sound Event Detection in Audio Mixtures,” in proc. of IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), 2021, pp. 341–345.
+
 [5] S. Park, D. K. Han, and M. Elhilali, "Cross-Referencing Self-Training Network for Sound Event Detection in Audio Mixtures," IEEE Transactions on Multimedia (under review).
 
 # Citation

@@ -87,8 +87,7 @@ def train(train_loader, model1, model2, optimizer1, optimizer2, c_epoch, ema_mod
     start = time.time()
 
     #plabel = []
-    #for i, (((batch_input, batch_input_ema), target2), target) in enumerate(train_loader):
-    for i, (((batch_input, _), _), target) in enumerate(train_loader):
+    for i, (((batch_input, batch_input_ema), target2), target) in enumerate(train_loader):
         global_step = c_epoch * len(train_loader) + i
         rampup_value = ramps.exp_rampup(global_step, cfg.n_epoch_rampup2*len(train_loader))
 
@@ -96,35 +95,8 @@ def train(train_loader, model1, model2, optimizer1, optimizer2, c_epoch, ema_mod
             adjust_learning_rate(optimizer1, rampup_value, rampdown_value=1.0)
             adjust_learning_rate(optimizer2, rampup_value, rampdown_value=0.9)
         meters.update('lr', optimizer1.param_groups[0]['lr'])
-        #target2 = target2.type(torch.FloatTensor)
-
-        #batch_input, batch_input_ema, target, target2 = to_cuda_if_available(batch_input, batch_input_ema, target, target2)
-        batch_input, target = to_cuda_if_available(batch_input, target)
-
-        strong_labeled_data = batch_input[mask_strong]
-        strong_label        = target[mask_strong]
-        weak_labeled_data   = batch_input[mask_weak]
-        weak_label          = target[mask_weak]
-        unlabeled_data      = batch_input[6:18,:]
-        unlabel             = target[6:18,:]
-
-        # mixup
-        c = np.random.beta(0.2,0.2)
-        perm = torch.randperm(6)
-        strong_mixed_data = c*strong_labeled_data + (1-c)*strong_labeled_data[perm,:]
-        strong_mixed_label= torch.clamp(
-            strong_label + strong_label[perm,:], min=0, max=1)
-        weak_mixed_data   = c*weak_labeled_data   + (1-c)*weak_labeled_data[perm,:]
-        weak_mixed_label  = torch.clamp(
-            weak_label + weak_label[perm,:], min=0, max=1)
-
-        perm = torch.randperm(12)
-        unlabeled_mixed_data = c*unlabeled_data   + (1-c)*unlabeled_data[perm,:]
-        
-        batch_input_ema = torch.cat(
-            (weak_mixed_data, unlabeled_mixed_data, strong_mixed_data), 0)
-        target2 = torch.cat(
-            (weak_mixed_label, unlabel, strong_mixed_label ),0)
+        target2 = target2.type(torch.FloatTensor)
+        batch_input, batch_input_ema, target, target2 = to_cuda_if_available(batch_input, batch_input_ema, target, target2)
 
         # Outputs
         strong_pred1, weak_pred1 = model1(batch_input)
@@ -137,7 +109,6 @@ def train(train_loader, model1, model2, optimizer1, optimizer2, c_epoch, ema_mod
         strong_predict2, weak_predict2 = ema_model2(batch_input)
         strong_predict2 = strong_predict2.detach()
         weak_predict2   = weak_predict2.detach()
-
 
         # Weak BCE Loss
         target_weak  = target.max(-2)[0]  # Take the max in the time axis
@@ -393,12 +364,8 @@ if __name__ == '__main__':
         scaler_args = ["global", "min-max"]
         scaler = ScalerPerAudio(*scaler_args)
 
-#    transforms = get_transforms_v2(cfg.max_frames, scaler, add_axis_conv,
-#                                shift_dict_params={"net_pooling": 4})
     transforms = get_transforms_v2(cfg.max_frames, scaler, add_axis_conv,
-                                noise_dict_params={"mean":0, "snr": cfg.noise_snr})
-
-
+                                shift_dict_params={"net_pooling": 4})
     transforms_valid = get_transforms(cfg.max_frames, scaler, add_axis_conv)
 
     weak_data = DataLoadDf(dfs["weak"], encod_func, transforms, in_memory=cfg.in_memory)

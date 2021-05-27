@@ -1,5 +1,5 @@
 # Cross-Referencing Self-Training (CRST) model for Sound Event Detection
-This is the implementation of cross-referencing self-training approach described in a paper "Cross-Referencing Self-Training Network for Sound Event Detection in Audio Mixtures" submitted to IEEE Transactions on Multimedia.
+This is an implementation of cross-referencing self-training approach described in a paper "Cross-Referencing Self-Training Network for Sound Event Detection in Audio Mixtures" submitted to IEEE Transactions on Multimedia.
 This approach was implemented based on a baseline for the task4 Sound Event Detection (SED) in DCASE challenge 2020.
 Original implementation can be found in https://github.com/turpaultn/dcase20_task4.
 

@@ -35,7 +35,7 @@ A Convolutional Recurrent Neural Network (CRNN) is trained with:
  4) Cross-Referencing Self-Training (CRST) approach [5] in "main_CRST_model.py".
 
 There are two different version of perturbation for CRST model. For a fair comparision to the challenge baseline, adding Gaussian noise is applied in "main_CRST_model.py".
-In version 2 ("main_CRST_model_v2.py"), frame-shifting is applied for data perturbation in CRST model.
+In version 2 ("main_CRST_model_v2.py"), frame-shifting is applied to data perturbation in CRST model.
 
 # Reference
 [1] A. Tarvainen and H. Valpola, “Mean teachers are better role models: Weight-averaged consistency targets improve semi-supervised deep learning results,” in Advances in Neural Information Processing Systems, vol. 2017-Decem, no. Nips, 2017, pp. 1196–1205.

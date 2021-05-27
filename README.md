@@ -27,8 +27,8 @@ Step 2. modify data path in "config.py"
 
 Step 3. run "main_CRST_model.py"
 
-# Description for different way to train CRNN network
-The CRNN network can be trained by:
+# Description of each main file
+A Convolutional Recurrent Neural Network (CRNN) can be trained by:
  1) Mean Teacher (MT) approach [1] in "main_MT_model.py". (This is the DCASE challenge baseline for task 4 in 2020 [2].)
  2) Interpolation Consistency Training (ICT) approach [3] in "main_ICT_model.py".
  3) Self-Referencing Self-Training (SRST) approach [4] in "main_SRST_model.py".

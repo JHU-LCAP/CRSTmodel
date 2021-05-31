@@ -46,7 +46,7 @@ In version 2 ("main_CRST_model_v2.py"), frame-shifting is applied to data pertur
 
 [4] S. Park, A. Bellur, D. K. Han, and M. Elhilali, “Self-training for Sound Event Detection in Audio Mixtures,” in proc. of IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP), 2021, pp. 341–345.
 
-[5] S. Park, D. K. Han, and M. Elhilali, "Cross-Referencing Self-Training Network for Sound Event Detection in Audio Mixtures," IEEE Transactions on Multimedia (under review).
+[5] S. Park, D. K. Han, and M. Elhilali, "Cross-Referencing Self-Training Network for Sound Event Detection in Audio Mixtures," arXiv:2105.13392(Online available: https://arxiv.org/abs/2105.13392).
 
 # Citation
-S. Park, D. K. Han, and M. Elhilali, "Cross-Referencing Self-Training Network for Sound Event Detection in Audio Mixtures," IEEE Transactions on Multimedia (under review).
+S. Park, D. K. Han, and M. Elhilali, "Cross-Referencing Self-Training Network for Sound Event Detection in Audio Mixtures," arXiv:2105.13392.

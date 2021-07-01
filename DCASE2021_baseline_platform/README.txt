@@ -18,6 +18,7 @@ The challenge dataset is categorized into three groups: strong labeled data, wea
  
 - test data
  1) validation data (DESED, real:validation): 1,168
+ 2) public evaluation data (DESED, real:public evaluation): 692
 
 # Description of each main file
 A Convolutional Recurrent Neural Network (CRNN) is trained with:

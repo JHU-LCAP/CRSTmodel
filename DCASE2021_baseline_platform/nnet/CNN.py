@@ -178,13 +178,13 @@ class ResidualCNN(nn.Module):
         # stem block 0
         cnn.add_module('conv0', nn.Conv2d(n_in_channel, nb_filters[0], kernel_size=kernel_size[0], stride=stride[0], padding=padding[0]))
         cnn.add_module('batchnorm0', nn.BatchNorm2d(nb_filters[0], eps=0.001, momentum=0.99))
-        cnn.add_module('glu0', CBAM(nb_filters[0]))
+        cnn.add_module('glu0', GLU(nb_filters[0]))
         cnn.add_module('avgpool0', nn.AvgPool2d(pooling[0]))
 
         # stem block 1
         cnn.add_module('conv1', nn.Conv2d(nb_filters[0], nb_filters[1], kernel_size=kernel_size[1], stride=stride[1], padding=padding[1]))
         cnn.add_module('batchnorm1', nn.BatchNorm2d(nb_filters[1], eps=0.001, momentum=0.99))
-        cnn.add_module('glu1', CBAM(nb_filters[1]))
+        cnn.add_module('glu1', GLU(nb_filters[1]))
         cnn.add_module('avgpool1', nn.AvgPool2d(pooling[1]))
 
         # Residual block 0

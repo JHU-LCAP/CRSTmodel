@@ -37,4 +37,5 @@ A Convolutional Recurrent Neural Network (CRNN) is trained with:
 
 # Citation
 S. Park, D. K. Han, and M. Elhilali, "Cross-Referencing Self-Training Network for Sound Event Detection in Audio Mixtures," arXiv:2105.13392.
+
 S. Park, W. Choi, and M. Elhilali, "Sound Event Detection with Cross-Referencing Self-Training," technical report, DCASE2021.
